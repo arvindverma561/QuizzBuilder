@@ -1,0 +1,966 @@
+Quiz Builder Api
+
+List of endpoint with require payloads
+
+
+We need to add header in every endpoint except api/User/Register  and api/User/Login
+
+Header :
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2.....
+
+-----------------------------------------------------User Registration---------------------------------
+End Point Post: api/User/Register
+request Payload
+{
+  "email": "string",
+  "password": "string"
+}
+------------------------------------------------------Login---------------------------------------------
+End Point Post: api/User/Login
+Request
+{
+  "email": "string",
+  "password": "string"
+}
+
+Response : 
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYXJ2aW5kLnZlcm1AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiYXJ2aW5kLnZlcm1AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiI5YmM3ZGZmMy0yNzllLTQyOWYtYWJhOS0zMWQ2MzZhNmNkYTQiLCJleHAiOjE3MDEyNTU2MDMsImlzcyI6IlF1aXpCdWlsZGVyLkNvbSIsImF1ZCI6IlF1aXpCdWlsZGVyLkNvbSJ9.EXYRp6LWXPFqTW8l_vb7_vvSL1kPbS1hQclcBp81Yps",
+    "expire_in": "2023-11-29T16:30:03.1563306+05:30"
+}
+
+
+-------------------------------------------------------Create Quiz---------------------------------
+EndPoint Post : api/Quiz/create-quiz
+Request Payloads
+-------------------------------------------------------Payload 1------------------------------------------------------------------------
+{
+  
+  "title": "Math Quiz",
+  "is_publish": true,
+  "questions": [
+    {
+    
+      "title": "What is 2 + 2?",
+      "is_multiple_choice": false,
+      "answers": [
+        {
+         
+          "title": "4",
+          "is_correct": true
+        },
+        {
+          
+          "title": "5",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      
+      "title": "Capital of France",
+      "is_multiple_choice": true,
+      "answers": [
+        {
+         
+          "title": "Berlin",
+          "is_correct": false
+        },
+        {
+
+          "title": "Paris",
+          "is_correct": true
+        },
+        {
+         
+          "title": "London",
+          "is_correct": false
+        }
+      ]
+    }
+  ]
+}
+
+-------------------------------------------------Quiz Payload 2------------------------------------------------------------------------
+
+{
+  
+  "title": "Science Quiz",
+  "is_publish": true,
+  "questions": [
+    {
+     
+      "title": "What is the chemical symbol for water?",
+      "is_multiple_choice": false,
+      "answers": [
+        {
+         
+          "title": "H2O",
+          "is_correct": true
+        },
+        {
+         
+          "title": "CO2",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      
+      "title": "Which planet is known as the Red Planet?",
+      "is_multiple_choice": true,
+      "answers": [
+        {
+          
+          "title": "Venus",
+          "is_correct": false
+        },
+        {
+          
+          "title": "Mars",
+          "is_correct": true
+        },
+        {
+         
+          "title": "Jupiter",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      
+      "title": "What is the powerhouse of the cell?",
+      "is_multiple_choice": false,
+      "answers": [
+        {
+         
+          "title": "Mitochondria",
+          "is_correct": true
+        },
+        {
+          
+          "title": "Nucleus",
+          "is_correct": false
+        }
+      ]
+    }
+  ]
+}
+
+
+-------------------------------------------------Quiz Payload 3------------------------------------------------------------------------
+
+{
+
+  "title": "General Knowledge Quiz",
+  "is_publish": true,
+  "questions": [
+    {
+     
+      "title": "What is the capital of Japan?",
+      "is_multiple_choice": false,
+      "answers": [
+        {
+         
+          "title": "Tokyo",
+          "is_correct": true
+        },
+        {
+         
+          "title": "Seoul",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+     
+      "title": "Who wrote 'Romeo and Juliet'?",
+      "is_multiple_choice": true,
+      "answers": [
+        {
+         
+          "title": "Jane Austen",
+          "is_correct": false
+        },
+        {
+          
+          "title": "William Shakespeare",
+          "is_correct": true
+        },
+        {
+         
+          "title": "Charles Dickens",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      
+      "title": "What is the largest mammal on Earth?",
+      "is_multiple_choice": false,
+      "answers": [
+        {
+         
+          "title": "Elephant",
+          "is_correct": false
+        },
+        {
+         
+          "title": "Blue Whale",
+          "is_correct": true
+        }
+      ]
+    },
+    {
+      
+      "title": "In which year did the Berlin Wall fall?",
+      "is_multiple_choice": false,
+      "answers": [
+        {
+          
+          "title": "1989",
+          "is_correct": true
+        },
+        {
+         
+          "title": "1991",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+     
+      "title": "What is the currency of Brazil?",
+      "is_multiple_choice": true,
+      "answers": [
+        {
+         
+          "title": "Peso",
+          "is_correct": true
+        },
+        {
+          
+          "title": "Real",
+          "is_correct": true
+        },
+        {
+          
+          "title": "Dinar",
+          "is_correct": true
+        },
+		{
+         
+          "title": "Test",
+          "is_correct": false
+        },
+				{
+        
+          "title": "Test_answer",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      
+      "title": "Who painted the Mona Lisa?",
+      "is_multiple_choice": false,
+      "answers": [
+        {
+
+          "title": "Vincent van Gogh",
+          "is_correct": false
+        },
+        {
+         
+          "title": "Leonardo da Vinci",
+          "is_correct": true
+        }
+      ]
+    },
+    {
+
+      "title": "What is the longest river in the world?",
+      "is_multiple_choice": true,
+      "answers": [
+        {
+         
+          "title": "Nile",
+          "is_correct": true
+        },
+        {
+         
+          "title": "Amazon",
+          "is_correct": false
+        },
+        {
+          
+          "title": "Yangtze",
+          "is_correct": false
+        }
+      ]
+    },
+    {
+      
+      "title": "Who developed the theory of relativity?",
+      "is_multiple_choice": false,
+      "answers": [
+        {
+          
+          "title": "Isaac Newton",
+          "is_correct": false
+        },
+        {
+          
+          "title": "Albert Einstein",
+          "is_correct": true
+        }
+      ]
+    }
+  ]
+}
+
+
+Response 
+
+{
+    "message": "Quiz created successfully"
+}
+
+-------------------------------------------------------Get Quizes -------------------------------------------------------
+EndPoint Get :
+api/Quiz/GetQuizess/pageNumber/pageSize
+api/Quiz/GetQuizess/1/10
+
+response (List of all quizzes that got published and unblished quiz of current user)
+
+{
+    "total_count": 4,
+    "data": [
+        {
+            "id": 1,
+            "title": "Math Quiz",
+            "is_published": true,
+            "questions": [
+                {
+                    "id": 1,
+                    "title": "What is 2 + 2?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 1,
+                            "title": "4"
+                        },
+                        {
+                            "id": 2,
+                            "title": "5"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Capital of France",
+                    "is_multiple_choice": true,
+                    "answers": [
+                        {
+                            "id": 3,
+                            "title": "Berlin"
+                        },
+                        {
+                            "id": 4,
+                            "title": "Paris"
+                        },
+                        {
+                            "id": 5,
+                            "title": "London"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Science Quiz",
+            "is_published": true,
+            "questions": [
+                {
+                    "id": 3,
+                    "title": "What is the chemical symbol for water?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 6,
+                            "title": "H2O"
+                        },
+                        {
+                            "id": 7,
+                            "title": "CO2"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "title": "Which planet is known as the Red Planet?",
+                    "is_multiple_choice": true,
+                    "answers": [
+                        {
+                            "id": 8,
+                            "title": "Venus"
+                        },
+                        {
+                            "id": 9,
+                            "title": "Mars"
+                        },
+                        {
+                            "id": 10,
+                            "title": "Jupiter"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "title": "What is the powerhouse of the cell?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 11,
+                            "title": "Mitochondria"
+                        },
+                        {
+                            "id": 12,
+                            "title": "Nucleus"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "title": "General Knowledge Quiz",
+            "is_published": true,
+            "questions": [
+                {
+                    "id": 6,
+                    "title": "What is the capital of Japan?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 13,
+                            "title": "Tokyo"
+                        },
+                        {
+                            "id": 14,
+                            "title": "Seoul"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "title": "Who wrote 'Romeo and Juliet'?",
+                    "is_multiple_choice": true,
+                    "answers": [
+                        {
+                            "id": 15,
+                            "title": "Jane Austen"
+                        },
+                        {
+                            "id": 16,
+                            "title": "William Shakespeare"
+                        },
+                        {
+                            "id": 17,
+                            "title": "Charles Dickens"
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "title": "What is the largest mammal on Earth?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 18,
+                            "title": "Elephant"
+                        },
+                        {
+                            "id": 19,
+                            "title": "Blue Whale"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "title": "In which year did the Berlin Wall fall?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 20,
+                            "title": "1989"
+                        },
+                        {
+                            "id": 21,
+                            "title": "1991"
+                        }
+                    ]
+                },
+                {
+                    "id": 10,
+                    "title": "What is the currency of Brazil?",
+                    "is_multiple_choice": true,
+                    "answers": [
+                        {
+                            "id": 22,
+                            "title": "Peso"
+                        },
+                        {
+                            "id": 23,
+                            "title": "Real"
+                        },
+                        {
+                            "id": 24,
+                            "title": "Dinar"
+                        },
+                        {
+                            "id": 25,
+                            "title": "Test"
+                        },
+                        {
+                            "id": 26,
+                            "title": "Test_answer"
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "title": "Who painted the Mona Lisa?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 27,
+                            "title": "Vincent van Gogh"
+                        },
+                        {
+                            "id": 28,
+                            "title": "Leonardo da Vinci"
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "title": "What is the longest river in the world?",
+                    "is_multiple_choice": true,
+                    "answers": [
+                        {
+                            "id": 29,
+                            "title": "Nile"
+                        },
+                        {
+                            "id": 30,
+                            "title": "Amazon"
+                        },
+                        {
+                            "id": 31,
+                            "title": "Yangtze"
+                        }
+                    ]
+                },
+                {
+                    "id": 13,
+                    "title": "Who developed the theory of relativity?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 32,
+                            "title": "Isaac Newton"
+                        },
+                        {
+                            "id": 33,
+                            "title": "Albert Einstein"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "title": "General Knowledge Quiz",
+            "is_published": true,
+            "questions": [
+                {
+                    "id": 14,
+                    "title": "What is the capital of Japan?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 34,
+                            "title": "Tokyo"
+                        },
+                        {
+                            "id": 35,
+                            "title": "Seoul"
+                        }
+                    ]
+                },
+                {
+                    "id": 15,
+                    "title": "Who wrote 'Romeo and Juliet'?",
+                    "is_multiple_choice": true,
+                    "answers": [
+                        {
+                            "id": 36,
+                            "title": "Jane Austen"
+                        },
+                        {
+                            "id": 37,
+                            "title": "William Shakespeare"
+                        },
+                        {
+                            "id": 38,
+                            "title": "Charles Dickens"
+                        }
+                    ]
+                },
+                {
+                    "id": 16,
+                    "title": "What is the largest mammal on Earth?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 39,
+                            "title": "Elephant"
+                        },
+                        {
+                            "id": 40,
+                            "title": "Blue Whale"
+                        }
+                    ]
+                },
+                {
+                    "id": 17,
+                    "title": "In which year did the Berlin Wall fall?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 41,
+                            "title": "1989"
+                        },
+                        {
+                            "id": 42,
+                            "title": "1991"
+                        }
+                    ]
+                },
+                {
+                    "id": 18,
+                    "title": "What is the currency of Brazil?",
+                    "is_multiple_choice": true,
+                    "answers": [
+                        {
+                            "id": 43,
+                            "title": "Peso"
+                        },
+                        {
+                            "id": 44,
+                            "title": "Real"
+                        },
+                        {
+                            "id": 45,
+                            "title": "Dinar"
+                        },
+                        {
+                            "id": 46,
+                            "title": "Test"
+                        },
+                        {
+                            "id": 47,
+                            "title": "Test_answer"
+                        }
+                    ]
+                },
+                {
+                    "id": 19,
+                    "title": "Who painted the Mona Lisa?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 48,
+                            "title": "Vincent van Gogh"
+                        },
+                        {
+                            "id": 49,
+                            "title": "Leonardo da Vinci"
+                        }
+                    ]
+                },
+                {
+                    "id": 20,
+                    "title": "What is the longest river in the world?",
+                    "is_multiple_choice": true,
+                    "answers": [
+                        {
+                            "id": 50,
+                            "title": "Nile"
+                        },
+                        {
+                            "id": 51,
+                            "title": "Amazon"
+                        },
+                        {
+                            "id": 52,
+                            "title": "Yangtze"
+                        }
+                    ]
+                },
+                {
+                    "id": 21,
+                    "title": "Who developed the theory of relativity?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 53,
+                            "title": "Isaac Newton"
+                        },
+                        {
+                            "id": 54,
+                            "title": "Albert Einstein"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+
+----------------------------------------------------------------Update Quiz---------------------------------
+EndPoint Post : api/Quiz/update-quiz
+
+Request Payload:
+
+{
+            "id": 1,
+            "title": "Math Quiz",
+            "is_published": true,
+            "questions": [
+                {
+                    "id": 1,
+                    "title": "What is 2 + 2?",
+                    "is_multiple_choice": false,
+                    "answers": [
+                        {
+                            "id": 1,
+                            "title": "4",
+							  "is_correct": true
+                        },
+                        {
+                            "id": 2,
+                            "title": "5",
+							  "is_correct": false
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Capital of France",
+                    "is_multiple_choice": true,
+                    "answers": [
+                        {
+                            "id": 3,
+                            "title": "Berlin",
+							  "is_correct": true
+                        },
+                        {
+                            "id": 4,
+                            "title": "Paris",
+							  "is_correct": true
+                        },
+                        {
+                            "id": 5,
+                            "title": "London",
+							  "is_correct": false
+                        }
+                    ]
+                }
+            ]
+        },
+
+--------------------------------------------------------Get Quiestion
+EndPoint Get : api/Question/get-questions/1/1/10
+api/Question/get-questions/quizId/pageNumber/pageSize
+
+response:
+
+{
+    "total_count": 2,
+    "data": [
+        {
+            "id": 1,
+            "title": "What is 2 + 2?",
+            "is_multiple_choice": false,
+            "answers": [
+                {
+                    "id": 1,
+                    "title": "4"
+                },
+                {
+                    "id": 2,
+                    "title": "5"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Capital of France",
+            "is_multiple_choice": true,
+            "answers": [
+                {
+                    "id": 3,
+                    "title": "Berlin"
+                },
+                {
+                    "id": 4,
+                    "title": "Paris"
+                },
+                {
+                    "id": 5,
+                    "title": "London"
+                }
+            ]
+        }
+    ]
+}
+
+
+--------------------------------------------------------------Submit Solution--------------------------------------
+EndPoint post : api/Solution/Submit-Solution/1
+                api/Solution/Submit-Solution/QuizId
+				
+				PayLoad:
+	
+{
+  "solution_questions": [
+    {
+      "question_id": 1,
+      "answer_id": 2
+    },
+    {
+      "question_id": 2,
+      "answer_id": 3
+    },
+    {
+      "question_id": 2,
+      "answer_id": 4
+    }
+  ]
+}
+
+Response:
+
+{
+    "id": 1,
+    "quiz_id": 1,
+    "quiz_title": "Math Quiz",
+    "user_id": null,
+    "username": "arvind.verm@gmail.com",
+    "score": 0,
+    "solution_questions": [
+        {
+            "id": 1,
+            "question_title": "What is 2 + 2?",
+            "answer_scored": -1,
+            "is_skipped": false
+        },
+        {
+            "id": 1,
+            "question_title": "Capital of France",
+            "answer_scored": 1,
+            "is_skipped": false
+        }
+    ]
+}
+
+
+-----------------------------------------------------------------Get-Solutions---------------------------------
+EndPoint Get:
+/api/Solution/Get-Solutions/
+
+Response
+
+
+[
+    {
+        "id": 1,
+        "quiz_id": 1,
+        "quiz_title": "Math Quiz",
+        "user_id": null,
+        "username": "arvind.verm@gmail.com",
+        "score": 0,
+        "solution_questions": [
+            {
+                "id": 1,
+                "question_title": "What is 2 + 2?",
+                "answer_scored": -1,
+                "is_skipped": false
+            },
+            {
+                "id": 1,
+                "question_title": "Capital of France",
+                "answer_scored": 1,
+                "is_skipped": false
+            }
+        ]
+    }
+]	
+
+
+-------------------------------------------Get Solutions of Create quizzes---------------
+EndPoint Get : api/Solution/GetAllQuiz-Attempted
+
+
+Response:
+
+[
+    {
+        "id": 1,
+        "quiz_id": 1,
+        "quiz_title": "Math Quiz",
+        "user_id": "9bc7dff3-279e-429f-aba9-31d636a6cda4",
+        "username": "arvind.verm@gmail.com",
+        "score": 0,
+        "solution_questions": [
+            {
+                "id": 1,
+                "question_title": "What is 2 + 2?",
+                "answer_scored": -1,
+                "is_skipped": false
+            },
+            {
+                "id": 1,
+                "question_title": "Capital of France",
+                "answer_scored": 1,
+                "is_skipped": false
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "quiz_id": 1,
+        "quiz_title": "Math Quiz",
+        "user_id": "e8b2f868-7119-4d53-a64f-3fe095072424",
+        "username": "arvind@gmail.com",
+        "score": 1.5,
+        "solution_questions": [
+            {
+                "id": 2,
+                "question_title": "What is 2 + 2?",
+                "answer_scored": 1,
+                "is_skipped": false
+            },
+            {
+                "id": 2,
+                "question_title": "Capital of France",
+                "answer_scored": 0.5,
+                "is_skipped": false
+            }
+        ]
+    }
+]
